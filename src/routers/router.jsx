@@ -27,45 +27,48 @@ import SuccessRedirect from "../components/SuccessRedirect";
 import ErrorRedirect from "../components/ErrorRedirect ";
 import ReturnPolicy from "../components/ReturnPolicy";
 import About from "../components/About";
+
+// الصفحات المُضافة فقط
+import Partners from "../pages/Partners";
+import Clients from "../pages/Clients";
+import Achievements from "../pages/Achievements";
+import Contact from "../pages/Contact";
+import Faq from "../pages/Faq";
+
 const router = createBrowserRouter([ 
-              {
-        path:"/SuccessRedirect",
-        element:<SuccessRedirect  />
-      },
-                    {
-        path:"/cancel",
-        element:<ErrorRedirect/>
-      },
+  {
+    path:"/SuccessRedirect",
+    element:<SuccessRedirect  />
+  },
+  {
+    path:"/cancel",
+    element:<ErrorRedirect/>
+  },
   {
     path: "/",
     element:<App/>,
     children:[
-      {path:"/",element:<Home/>},
-      {path:"/categories/:categoryName",element:<CategoryPage/>},
-      {path:"/search",element:<Search/>},
-      {path:"Shop",element:<ShopPage/>},
-            {path:"About",element:<About/>},
+      { path:"/", element:<Home/> },
+      { path:"/categories/:categoryName", element:<CategoryPage/> },
+      { path:"/search", element:<Search/> },
+      { path:"Shop", element:<ShopPage/> },
+      { path:"About", element:<About/> },
+      { path:"/return-policy", element:<ReturnPolicy/> },
+      { path:"Shop/:id", element:<SingleProduct/> },
+      { path:"/success", element:<PaymentSuccess /> },
+      { path:"/orders/:orderId", element : <OrderDetails /> },
+      { path:"/checkout", element:<Checkout/> },
 
-      {path:"/return-policy",element:<ReturnPolicy/>},
-
-      {path:"Shop/:id",element:<SingleProduct/>},
-      {
-        path:"/success",
-        element:<PaymentSuccess />
-      },
-
-      {
-        path:"/orders/:orderId",
-        element : <OrderDetails />
-      },
-      {
-        path:"/checkout",
-        element:<Checkout/>
-      }
+      // المسارات المُضافة فقط للصفحات الأخيرة
+      { path:"/partners", element:<Partners/> },
+      { path:"/clients", element:<Clients/> },
+      { path:"/achievements", element:<Achievements/> },
+      { path:"/contact", element:<Contact/> },
+      { path:"/faq", element:<Faq/> },
     ]
   },
-  {path:"/login",element:<Login/>},
-  {path:"/register",element:<Register/>},
+  { path:"/login", element:<Login/> },
+  { path:"/register", element:<Register/> },
   {
     path: "/dashboard",
     element: <PrivateRoute><DashboardLayout/></PrivateRoute>, // TODO: user private routes here

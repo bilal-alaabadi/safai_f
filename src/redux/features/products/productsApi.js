@@ -37,7 +37,10 @@ const productsApi = createApi({
         return `/?${queryParams}`;
       },
       transformResponse: (response) => ({
-        products: response.products,
+        products: response.products.map((p) => ({
+          ...p,
+          weight: p.weight || "", // ✅ إضافة الوزن في البيانات المسترجعة
+        })),
         totalPages: response.totalPages,
         totalProducts: response.totalProducts,
       }),
@@ -50,30 +53,32 @@ const productsApi = createApi({
           : ["ProductList"],
     }),
 
-fetchProductById: builder.query({
-  query: (id) => `/product/${id}`, // تغيير المسار هنا
-  transformResponse: (response) => {
-    if (!response?.product) {
-      throw new Error('المنتج غير موجود');
-    }
-    
-    const { product } = response;
-    return {
-      _id: product._id,
-      name: product.name,
-      category: product.category,
-      size: product.size || '',
-      price: product.price,
-      oldPrice: product.oldPrice || '',
-      description: product.description,
-      image: Array.isArray(product.image) ? product.image : [product.image],
-      author: product.author
-    };
-  },
-  providesTags: (result, error, id) => [{ type: "Product", id }],
-}),
+    // جلب المنتج حسب ID
+    fetchProductById: builder.query({
+      query: (id) => `/product/${id}`,
+      transformResponse: (response) => {
+        if (!response?.product) {
+          throw new Error('المنتج غير موجود');
+        }
 
-    // جلب المنتجات المرتبطة (منتجات مشابهة)
+        const { product } = response;
+        return {
+          _id: product._id,
+          name: product.name,
+          category: product.category,
+          size: product.size || '',
+          price: product.price,
+          oldPrice: product.oldPrice || '',
+          description: product.description,
+          image: Array.isArray(product.image) ? product.image : [product.image],
+          author: product.author,
+          weight: product.weight || '', // ✅ تضمين الوزن عند جلب المنتج
+        };
+      },
+      providesTags: (result, error, id) => [{ type: "Product", id }],
+    }),
+
+    // جلب المنتجات المرتبطة
     fetchRelatedProducts: builder.query({
       query: (id) => `/related/${id}`,
       providesTags: (result, error, id) => [
@@ -128,6 +133,7 @@ fetchProductById: builder.query({
             ? product.price 
             : product.regularPrice,
           images: Array.isArray(product.image) ? product.image : [product.image],
+          weight: product.weight || '', // ✅ الوزن في نتائج البحث
         }));
       },
       providesTags: (result) =>

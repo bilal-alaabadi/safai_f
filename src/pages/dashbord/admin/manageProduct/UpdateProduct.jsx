@@ -7,15 +7,16 @@ import TextInput from '../addProduct/TextInput';
 import SelectInput from '../addProduct/SelectInput';
 // مهم: استورد كمبوننت "التعديل" وليس تبع الإضافة
 import UploadImage from '../manageProduct/UploadImag';
-
 const categories = [
   { label: 'أختر منتج', value: '' },
-  { label: 'تفصيل العبايات', value: 'تفصيل العبايات' },
-  { label: 'الشيلات فرنسية', value: 'الشيلات فرنسية' },
-  { label: 'الشيلات سادة', value: 'الشيلات سادة' },
-  { label: 'العطور', value: 'العطور' },
-  { label: 'دريسات', value: 'دريسات' },
+  { label: 'تمور ومشتقاتها', value: 'تمور ومشتقاتها' },
+  { label: 'بهارات وتوابل', value: 'بهارات وتوابل' },
+  { label: 'عطورات طبيعية', value: 'عطورات طبيعية' },
+  { label: 'منتجات بحرية', value: 'منتجات بحرية' },
+  { label: 'مستلزمات موسمية', value: 'مستلزمات موسمية' },
+  { label: 'الخضار والفواكه', value: 'الخضار والفواكه' } // ✅ تم الجمع في تصنيف واحد
 ];
+
 
 const sizes = [
   { label: 'اختر الحجم', value: '' },

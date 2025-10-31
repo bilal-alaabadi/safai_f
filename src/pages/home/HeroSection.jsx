@@ -1,25 +1,31 @@
 // HeroSection.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import card1 from "../../assets/IMG_0064.jpg";
-import card2 from "../../assets/IMG_3440.png";
-import card3 from "../../assets/IMG_3441.png";
-import card4 from "../../assets/IMG_0067.jpg";
-import log from "../../assets/Screenshot_2025-08-23_183158-removebg-preview.png"; // شعار الأنثور
+import card1 from "../../assets/IMG-20251004-WA0073.jpg";
+import card2 from "../../assets/IMG-20251004-WA0075.jpg";
+import card3 from "../../assets/IMG-20251004-WA0081.jpg";
+import card4 from "../../assets/IMG-20251004-WA0081.jpg";
+import card5 from "../../assets/IMG-20251004-WA0081.jpg";
+import card6 from "../../assets/IMG-20251004-WA0081.jpg";
+import log from "../../assets/ChatGPT Image Oct 5, 2025, 10_22_40 PM.png"; // شعار الأنثور
 
 const cards = [
-  { id: 1, image: card1, trend: '  ', title: 'تفصيل العبايات' },
-  { id: 4, image: card4, trend: ' ',  title: 'دريسات' },
-  { id: 2, image: card2, trend: '  ', title: 'الشيلات' },
-  { id: 3, image: card3, trend: '  ', title: 'العطور' },
+  { id: 1, image: card1, trend: ' ', title: 'تمور ومشتقاتها' },
+  { id: 2, image: card2, trend: ' ', title: 'بهارات وتوابل' },
+  { id: 3, image: card3, trend: ' ', title: 'عطورات طبيعية' },
+  { id: 4, image: card4, trend: ' ', title: 'منتجات بحرية' },
+  { id: 5, image: card5, trend: ' ', title: 'مستلزمات موسمية' },
+  { id: 6, image: card6, trend: ' ', title: 'الخضار والفواكه' },
 ];
 
 // خريطة ربط عناوين الكروت مع فلاتر المتجر الموجودة
 const categoryMap = {
-  'تفصيل العبايات': 'تفصيل العبايات',
-  'دريسات': 'دريسات',
-  'العطور': 'العطور',
-  'الشيلات': 'الشيلات سادة', // ينقله مباشرة لفلتر الشيلات
+  'تمور ومشتقاتها': 'تمور ومشتقاتها',
+  'بهارات وتوابل': 'بهارات وتوابل',
+  'عطورات طبيعية': 'عطورات طبيعية',
+  'منتجات بحرية': 'منتجات بحرية',
+  'مستلزمات موسمية': 'مستلزمات موسمية',
+  'الخضار والفواكه': 'الخضار والفواكه',
 };
 
 const HeroSection = () => {
@@ -31,9 +37,9 @@ const HeroSection = () => {
   };
 
   return (
-    <section className=' px-4 py-8'>
+    <section className='px-4 py-8'>
       <div className="relative text-center" dir="rtl">
-        <h2 className="text-[32px] font-normal text-[#CB908B] mb-1">أستكشف مجموعاتنا المميزة</h2>
+        <h2 className="text-[32px] font-normal text-[#7c3d23] mb-1">أستكشف مجموعاتنا المميزة</h2>
         <p className="text-[32px] font-bold text-[#3c3c3c] mb-4">عبر أقسامنا الفريدة</p>
 
         <div className="flex items-center justify-center gap-3 relative z-10">
@@ -43,7 +49,8 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className='grid grid-cols-2 gap-4 md:gap-6'>
+      {/* الشبكة: 2 أعمدة في الجوال، 3 أعمدة في الكمبيوتر */}
+      <div className='grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-6'>
         {cards.map((card) => (
           <button
             key={card.id}

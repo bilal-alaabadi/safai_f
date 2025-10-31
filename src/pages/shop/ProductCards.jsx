@@ -139,7 +139,7 @@ const ProductCards = ({ products }) => {
                       handleAddToCart(product._id, product);
                     }}
                     className={`p-2 text-white rounded-full shadow-md transition-all duration-300 ${
-                      addedItems[product._id] ? 'bg-green-500' : 'bg-[#CB908B]'
+                      addedItems[product._id] ? 'bg-green-500' : 'bg-[#7c3d23]'
                     }`}
                     aria-label="إضافة إلى السلة"
                   >
@@ -158,7 +158,17 @@ const ProductCards = ({ products }) => {
             </div>
 
             <div className='p-4 text-center'>
-              <h4 className="text-lg font-semibold mb-1">{product.name || "اسم المنتج"}</h4>
+              {/* ✅ الاسم + الوزن */}
+              <h4
+                className="text-lg font-semibold mb-1"
+                title={`${product.name || "اسم المنتج"}${product.weight ? ` (${product.weight})` : ''}`}
+              >
+                {product.name || "اسم المنتج"}
+                {product.weight && (
+                  <span className="text-sm text-gray-500 font-normal"> ({product.weight})</span>
+                )}
+              </h4>
+
               <p className="text-gray-500 text-sm mb-3">{product.category || "فئة غير محددة"}</p>
               {renderPrice(product)}
             </div>

@@ -1,12 +1,9 @@
 import React from "react";
-import log from "../assets/Screenshot_2025-08-23_183158-removebg-preview.png"; // شعار RF_COLLECTION
-import {
-  SiVisa,
-  SiMastercard,
-  SiApplepay,
-  SiGooglepay,
-} from "react-icons/si";
-import { FaInstagram, FaWhatsapp, FaSnapchatGhost, FaTiktok } from "react-icons/fa";
+import log from "../assets/ChatGPT Image Oct 5, 2025, 10_22_40 PM.png";
+import { SiVisa, SiMastercard, SiApplepay, SiGooglepay } from "react-icons/si";
+import { FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
+
+const ACCENT = "#7c3d23";
 
 const Footer = () => {
   return (
@@ -20,11 +17,11 @@ const Footer = () => {
           preserveAspectRatio="none"
           aria-hidden="true"
         >
-          <path d="M28 0 H100 V36 H28 A28 28 0 0 1 28 0 Z" fill="#CB908B" />
+          <path d="M28 0 H100 V36 H28 A28 28 0 0 1 28 0 Z" fill={ACCENT} />
         </svg>
 
         {/* محتوى الشريط */}
-        <div className="relative max-w-7xl mx-auto px-4 py-8 md:py-12 ">
+        <div className="relative max-w-7xl mx-auto px-4 py-8 md:py-12">
           <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
             {/* الشعار */}
             <div className="shrink-0 self-start">
@@ -58,35 +55,89 @@ const Footer = () => {
       {/* ===== نهاية الشريط العلوي ===== */}
 
       {/* الأقسام السفلية */}
-      <div className="max-w-7xl mx-auto px-4 ">
-        <div className="py-10 grid grid-cols-1 md:grid-cols-3 gap-10  bg-white text-[#CB908B] md:text-right text-center">
-          {/* RF_COLLECTION */}
-          {/* <div>
-            <h4 className="text-xl font-bold mb-3">RF_COLLECTION</h4>
-            <p className="text-lg leading-loose mb-4">
-              في سلطنة عُمان، كانت هناك فتاة تحلم منذ صغرها بابتكار شيءٍ
-              يعكس أناقة المرأة العُمانية بروحٍ عصرية. من هذا الحلم وُلدت
-              <span className="font-semibold text-[#CB908B]"> RF_COLLECTION</span>:
-              علامة عبايات راقية بقصّات نادرة وبسيطة، توازن بين الحشمة
-              والتميّز.
+      <div className="max-w-7xl mx-auto px-4">
+        <div
+          className="py-10 grid grid-cols-1 md:grid-cols-4 gap-10 bg-white md:text-right text-center"
+          style={{ color: ACCENT }}
+        >
+          {/* أكتب عن الشركة */}
+          <div className="md:col-span-2">
+            <h4 className="text-xl font-bold mb-3">أكتب عن الشركة</h4>
+            <p className="text-sm leading-relaxed mb-4">
+              شركة صفاء البحر للتمور هي شركة عُمانية رائدة في مجال إنتاج وتوزيع التمور عالية الجودة. 
+              نحن نفتخر بتقديم أفضل أنواع التمور العُمانية الأصيلة التي تُجمع بعناية فائقة من أفضل المزارع. 
+              نسعى دائمًا لتلبية توقعات عملائنا من خلال منتجاتنا المتميزة وخدماتنا المتكاملة.
             </p>
-          </div> */}
+            <p className="text-sm leading-relaxed">
+              نؤمن بالجودة والتميز في كل ما نقدمه، ونسعى لأن نكون الخيار الأول لكل من يبحث عن تمور عُمانية أصيلة بمواصفات عالمية.
+            </p>
+          </div>
 
           {/* روابط مهمة */}
           <div>
             <h4 className="text-xl font-bold mb-3">روابط مهمة</h4>
             <ul className="space-y-2 text-sm">
-              <li>
-                <a href="/about" className="hover:text-[#d3ae27] transition">
+              {/* <li>
+                <a
+                  href="/about"
+                  className="transition hover:opacity-80"
+                  style={{ color: ACCENT }}
+                >
                   من نحن
                 </a>
               </li>
               <li>
                 <a
+                  href="/partners"
+                  className="transition hover:opacity-80"
+                  style={{ color: ACCENT }}
+                >
+                  شركاؤنا
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/clients"
+                  className="transition hover:opacity-80"
+                  style={{ color: ACCENT }}
+                >
+                  عملاؤنا
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/achievements"
+                  className="transition hover:opacity-80"
+                  style={{ color: ACCENT }}
+                >
+                  إنجازاتنا
+                </a>
+              </li> */}
+              <li>
+                <a
+                  href="/contact"
+                  className="transition hover:opacity-80"
+                  style={{ color: ACCENT }}
+                >
+                  تواصل معنا
+                </a>
+              </li>
+              <li>
+                <a
                   href="/return-policy"
-                  className="hover:text-[#d3ae27] transition"
+                  className="transition hover:opacity-80"
+                  style={{ color: ACCENT }}
                 >
                   سياسة الاستبدال والاسترجاع
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/faq"
+                  className="transition hover:opacity-80"
+                  style={{ color: ACCENT }}
+                >
+                  الأسئلة الشائعة
                 </a>
               </li>
             </ul>
@@ -96,51 +147,56 @@ const Footer = () => {
           <div>
             <h4 className="text-xl font-bold mb-3">تواصل معنا</h4>
             <p className="text-sm mb-4">+96892760882</p>
-            <div className="flex justify-center md:justify-end gap-4 ">
+
+            {/* أيقونات وسائل التواصل التي زودتنا بها */}
+            <div className="flex justify-center md:justify-end gap-5">
               <a
-                href="https://www.instagram.com/rf_collection999/"
+                href="https://whatsapp.com/channel/0029Vak5ilU0rGiN0RaEWF1L"
                 target="_blank"
                 rel="noopener noreferrer"
-                className=" hover:text-[#9B2D1F] transition"
+                className="transition hover:opacity-80"
+                style={{ color: ACCENT }}
+                aria-label="قناة واتساب"
               >
-                <FaInstagram className="text-xl" />
+                <FaWhatsapp className="text-2xl" />
               </a>
               <a
-                href="https://api.whatsapp.com/send/?phone=96892760882&text&type=phone_number&app_absent=0"
+                href="https://www.instagram.com/safaalbaherco?igsh=eWRhNGwwc2Q5ajBr&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className=" hover:text-[#9B2D1F] transition"
+                className="transition hover:opacity-80"
+                style={{ color: ACCENT }}
+                aria-label="انستجرام صفاء البحر"
               >
-                <FaWhatsapp className="text-xl" />
+                <FaInstagram className="text-2xl" />
               </a>
               <a
-                href="https://www.snapchat.com/add/rf_collectio999"
+                href="https://www.youtube.com/@safaalbaherco"
                 target="_blank"
                 rel="noopener noreferrer"
-                className=" hover:text-[#9B2D1F] transition"
+                className="transition hover:opacity-80"
+                style={{ color: ACCENT }}
+                aria-label="يوتيوب صفاء البحر"
               >
-                <FaSnapchatGhost className="text-xl" />
-              </a>
-              <a
-                href="https://www.tiktok.com/@rf_collection_999"
-                target="_blank"
-                rel="noopener noreferrer"
-                className=" hover:text-[#9B2D1F] transition"
-              >
-                <FaTiktok className="text-xl" />
+                <FaYoutube className="text-2xl" />
               </a>
             </div>
           </div>
         </div>
 
         {/* الحقوق */}
-        <div className="border-t border-[#CB908B]/30 pt-4 pb-8 text-center text-sm text-[#CB908B]" dir="rtl">
-          جميع الحقوق محفوظة لدى RF_COLLECTION —{" "}
+        <div
+          className="border-t pt-4 pb-8 text-center text-sm"
+          dir="rtl"
+          style={{ borderColor: `${ACCENT}4D`, color: ACCENT }} // 4D ≈ 30% opacity
+        >
+          جميع الحقوق محفوظة لدى شركة صفاء البحر للتمور —{" "}
           <a
             href="https://www.instagram.com/mobadeere/"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline hover:text-[#2e3528] transition-colors"
+            className="underline transition-colors hover:opacity-80"
+            style={{ color: ACCENT }}
           >
             تصميم مبادر
           </a>

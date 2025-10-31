@@ -8,13 +8,13 @@ import { useNavigate } from 'react-router-dom';
 
 const categories = [
   { label: 'أختر منتج', value: '' },
-  { label: 'تفصيل العبايات', value: 'تفصيل العبايات' },
-  { label: 'الشيلات فرنسية', value: 'الشيلات فرنسية' },
-  { label: 'الشيلات سادة', value: 'الشيلات سادة' },
-  { label: 'العطور', value: 'العطور' },
-  { label: 'دريسات', value: 'دريسات' },
+  { label: 'تمور ومشتقاتها', value: 'تمور ومشتقاتها' },
+  { label: 'بهارات وتوابل', value: 'بهارات وتوابل' },
+  { label: 'عطورات طبيعية', value: 'عطورات طبيعية' },
+  { label: 'منتجات بحرية', value: 'منتجات بحرية' },
+  { label: 'مستلزمات موسمية', value: 'مستلزمات موسمية' },
+  { label: 'الخضار والفواكه', value: 'الخضار والفواكه' } ,
 ];
-
 const AddProduct = () => {
   const { user } = useSelector((state) => state.auth);
 
@@ -24,7 +24,8 @@ const AddProduct = () => {
     price: '',
     description: '',
     oldPrice: '',
-    inStock: true, // متوفر افتراضياً
+    inStock: true, 
+    weight: '',    
   });
 
   const [image, setImage] = useState([]);
@@ -51,6 +52,8 @@ const AddProduct = () => {
       'السعر': product.price,
       'الوصف': product.description,
       'الصور': image.length > 0,
+      // الوزن غير إجباري حالياً. لو تريده إجباري أزل التعليق التالي:
+      // 'الوزن': product.weight,
     };
 
     const missing = Object.entries(required)
@@ -70,7 +73,7 @@ const AddProduct = () => {
       }).unwrap();
 
       alert('تمت أضافة المنتج بنجاح');
-      setProduct({ name: '', category: '', oldPrice: '', price: '', description: '', inStock: true });
+      setProduct({ name: '', category: '', oldPrice: '', price: '', description: '', inStock: true, weight: '' });
       setImage([]);
       navigate('/shop');
     } catch (err) {
@@ -97,6 +100,16 @@ const AddProduct = () => {
           value={product.category}
           onChange={handleChange}
           options={categories}
+        />
+
+        {/* ✅ خانة الوزن */}
+        <TextInput
+          label="الوزن (اختياري)"
+          name="weight"
+          type="text"
+          placeholder="مثال: 1 كجم / 500 جم / 30 مل"
+          value={product.weight}
+          onChange={handleChange}
         />
 
         <TextInput
