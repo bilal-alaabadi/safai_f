@@ -6,21 +6,20 @@ const ReturnPolicy = () => {
       <div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-sm">
         
         {/* العنوان الرئيسي */}
-        <h1 className="text-2xl md:text-3xl font-bold text-center text-[#9B2D1F] mb-6">
+        <h1 className="text-2xl md:text-3xl font-bold text-center text-[#7C3D23] mb-6">
           سياسة الاسترجاع والاستبدال
         </h1>
 
         {/* مقدمة الصفحة */}
         <div className="mb-8 text-right space-y-4">
           <p className="text-gray-700 text-lg leading-relaxed">
-            في سلطنة عُمان، وُلِدت فكرة <span className="font-semibold text-[#9B2D1F]">RF_COLLECTION</span> 
-            من طموح فتاة تسعى لتعكس أناقة المرأة العمانية بروحٍ عصرية. 
-            بدأت التصاميم من غرفتها باستخدام خامات فاخرة بلمسات مستوحاة من الطابع العماني الساتر، 
-            ومع الإصرار والجودة وصلت منتجاتها إلى النساء الباحثات عن التميز والبساطة حول العالم.
+            نُرحّب بك في <span className="font-semibold text-[#7C3D23]">صفاء البحر للتمور</span>، 
+            متجر عماني يهتم بتقديم أجود أنواع التمور العُمانية ومنتجاتها الطبيعية، 
+            إضافةً إلى مجموعة مختارة من العطور والبهارات والمشروبات الفاخرة.
           </p>
           <p className="text-gray-600">
-            نؤمن بأن كل قطعة لديكِ فريدة صُممت خصيصًا لكِ، ومع ذلك نحرص أن تكون سياسة الاسترجاع والاستبدال 
-            واضحة وسهلة لضمان راحتكِ ورضاكِ التام.
+            نحرص على رضاك التام وثقتك بمنتجاتنا، لذا وضعنا سياسة استرجاع واستبدال واضحة 
+            تحافظ على حقوق عملائنا الكرام وتضمن أعلى معايير الجودة والسلامة الغذائية.
           </p>
         </div>
 
@@ -31,18 +30,19 @@ const ReturnPolicy = () => {
           <div className="border-b border-gray-100 pb-4">
             <h3 className="text-lg font-semibold text-gray-800 mb-2">الاسترجاع</h3>
             <p className="text-gray-600 leading-relaxed">
-              نقبل طلبات الاسترجاع فقط في حال وجود خطأ في المقاس مقارنةً بالذي قام العميل بإرفاقه 
-              أو في حال وجود عيب أو تلف في المنتج. 
-              يجب تقديم الطلب خلال <span className="font-semibold text-[#9B2D1F]">24 ساعة من استلام الطلبية</span>.
+              حفاظًا على جودة وسلامة المنتجات الغذائية، لا نقبل استرجاع التمور أو المنتجات الغذائية 
+              بعد استلامها إلا في حالة وجود تلف واضح أو خطأ في الطلب من جانبنا. 
+              يجب تقديم طلب الاسترجاع خلال 
+              <span className="font-semibold text-[#7C3D23]"> 24 ساعة من استلام الطلبية</span>.
             </p>
           </div>
 
           {/* البند الثاني */}
           <div className="border-b border-gray-100 pb-4">
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">شروط الاستبدال</h3>
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">الاستبدال</h3>
             <p className="text-gray-600 leading-relaxed">
-              لا نقبل استبدال المنتجات التي تم فتح عبواتها الأصلية أو استخدامها، 
-              وذلك لأسباب صحية وضمان الجودة.
+              يمكن استبدال المنتج فقط إذا تم تسليم منتج مختلف عن المطلوب أو كان هناك خلل في التغليف. 
+              لا يمكن استبدال المنتجات المفتوحة أو المستخدمة.
             </p>
           </div>
 
@@ -50,7 +50,8 @@ const ReturnPolicy = () => {
           <div className="border-b border-gray-100 pb-4">
             <h3 className="text-lg font-semibold text-gray-800 mb-2">المنتجات التالفة</h3>
             <p className="text-gray-600 leading-relaxed">
-              في حال استلام منتج تالف، يرجى التواصل معنا خلال 24 ساعة مع إرفاق صور توضح المشكلة بوضوح.
+              في حال استلام منتج تالف أو منتهي الصلاحية، يُرجى التواصل معنا فورًا 
+              خلال 24 ساعة من استلام الطلب مع إرفاق صور توضح الحالة.
             </p>
           </div>
 
@@ -58,10 +59,17 @@ const ReturnPolicy = () => {
           <div className="pb-4">
             <h3 className="text-lg font-semibold text-gray-800 mb-2">تكاليف الشحن</h3>
             <p className="text-gray-600 leading-relaxed">
-              نتحمل تكاليف الشحن فقط في حال كان الخطأ من جانبنا (منتج تالف أو غير مطابق للوصف). 
-              في الحالات الأخرى تكون تكاليف الشحن على العميل.
+              تتحمل <span className="font-semibold text-[#7C3D23]">صفاء البحر للتمور</span> 
+              تكاليف الشحن في حال وجود خطأ من طرفنا (منتج خاطئ أو تالف). 
+              أما في الحالات الأخرى، فتكون تكاليف الشحن على العميل.
             </p>
           </div>
+        </div>
+
+        {/* فقرة ختامية */}
+        <div className="mt-8 text-center text-gray-600 text-sm">
+          نشكركم على ثقتكم بـ <span className="font-semibold text-[#7C3D23]">صفاء البحر للتمور</span> 
+          ونتعهد بتقديم أفضل جودة وخدمة ترضيكم دائمًا.
         </div>
 
       </div>
