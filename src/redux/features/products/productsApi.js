@@ -1,3 +1,4 @@
+// ========================= src/redux/features/products/productsApi.js =========================
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { getBaseUrl } from "../../../utils/baseURL";
 
@@ -39,7 +40,7 @@ const productsApi = createApi({
       transformResponse: (response) => ({
         products: response.products.map((p) => ({
           ...p,
-          weight: p.weight || "", // ✅ إضافة الوزن في البيانات المسترجعة
+          weight: p.weight || "",
         })),
         totalPages: response.totalPages,
         totalProducts: response.totalProducts,
@@ -58,21 +59,25 @@ const productsApi = createApi({
       query: (id) => `/product/${id}`,
       transformResponse: (response) => {
         if (!response?.product) {
-          throw new Error('المنتج غير موجود');
+          throw new Error("المنتج غير موجود");
         }
 
         const { product } = response;
+
+        // نحافظ على الحقول الأساسية ونضمن وجود مصفوفة الصور
+        // نضيف regularPrice (إن وجد) لكن العرض يعتمد على price/oldPrice
         return {
           _id: product._id,
           name: product.name,
           category: product.category,
-          size: product.size || '',
-          price: product.price,
-          oldPrice: product.oldPrice || '',
+          size: product.size || "",
+          price: product.price,                // السعر الحالي
+          oldPrice: product.oldPrice || "",    // السعر القديم لعرض الخصم
+          regularPrice: product.regularPrice || product.price || "", // للاستخدام المستقبلي إن لزم
           description: product.description,
           image: Array.isArray(product.image) ? product.image : [product.image],
           author: product.author,
-          weight: product.weight || '', // ✅ تضمين الوزن عند جلب المنتج
+          weight: product.weight || "",
         };
       },
       providesTags: (result, error, id) => [{ type: "Product", id }],
@@ -127,13 +132,14 @@ const productsApi = createApi({
     searchProducts: builder.query({
       query: (searchTerm) => `/search?q=${searchTerm}`,
       transformResponse: (response) => {
-        return response.map(product => ({
+        return response.map((product) => ({
           ...product,
-          price: product.category === 'حناء بودر' 
-            ? product.price 
-            : product.regularPrice,
+          price:
+            product.category === "حناء بودر"
+              ? product.price
+              : product.regularPrice,
           images: Array.isArray(product.image) ? product.image : [product.image],
-          weight: product.weight || '', // ✅ الوزن في نتائج البحث
+          weight: product.weight || "",
         }));
       },
       providesTags: (result) =>
